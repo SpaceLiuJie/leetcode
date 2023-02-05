@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var strStr = function (haystack, needle) {
+            var num = 0;
+            var index = needle[0]   // needle 首字母
+            var len = needle.length //needle 长度
+            if (needle !== '') {  //needle 不为空时
+                if (haystack.includes(needle)) { //needle是否存在htystack 中
+                    for (let i = 0; i < haystack.length; i++) {
+                        if (haystack[i] == index) { //当首字母出现在htystack中
+                            var res = haystack.substr(i, len); //截取与needle相等的长度
+                            if (res == needle) {    //判断截取的字符串res 是否与needle相等
+                                num = i;
+                                break;
+                            }
+                        }
+                    }
+                } else {  //不在 num = -1
+                    num = -1;
+                }
+            }
+            return num
+        };
+        var haystack = "aaabaaa",
+            needle = "c";
+        var res = strStr(haystack, needle)
+        console.log(res);
+    </script>
+</body>
+
+</html>

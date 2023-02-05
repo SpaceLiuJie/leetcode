@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var addBinary = function (a, b) {
+            var arrA = a.split('')
+            arrA.reverse() //前后倒转
+            var arrB = b.split('')
+            arrB.reverse()
+            if (a.length > b.length) {
+                resMax = arrA
+                resMIn = arrB
+            } else {
+                resMax = arrB
+                resMIn = arrA
+            }
+            var len = resMIn.length
+            var resArr = resMax.splice(len) //切割的数组
+            console.log(resArr, resMax, resMIn, "1001001");
+            var arr1 = [];
+            var sum = 0;
+            var flag = false
+            for (var i = 0; i < resMax.length; i++) {
+                for (var j = i; j < resMIn.length; j++) {
+
+                    if (resMax[i] * 1 + resMIn[j] * 1 + sum < 2 && flag) {
+                        arr1.push(resMax[i] * 1 + resMIn[j] * 1 + sum)
+                        sum = 0
+                        flag = false
+                        break
+                    } else if (resMax[i] * 1 + resMIn[j] * 1 + sum >= 2 && flag) {
+                        sum = resMax[i] * 1 + resMIn[j] * 1 + sum - 2
+                        arr1.push(sum);
+                        sum = 1
+                        flag = true;
+
+
+                        break
+                    } else if (resMax[i] * 1 + resMIn[j] * 1 + sum >= 2) {
+                        if (sum > 0) {
+                            arr1.push(resMax[i] * 1 + resMIn[j] * 1 + sum - 2);
+                            sum = resMax[i] * 1 + resMIn[j] * 1 + sum - 2;
+
+                        } else {
+                            arr1.push(0);
+                            sum += 1
+                        }
+
+                        flag = true;
+                        break
+                    } else if (resMax[i] * 1 + resMIn[j] * 1 + sum < 2) {
+                        arr1.push(resMax[i] * 1 + resMIn[j] * 1 + sum)
+                        break
+                    }
+                }
+            }
+            console.log(resArr, flag);
+            console.log(arr1);
+            if (resArr.length <= 0 && flag) {
+                arr1.push(1)
+            } else if (resArr[0] * 1 + 1 < 2 && flag) {
+                arr1.push(resArr[0] * 1 + 1)
+                for (var m = 1; m < resArr.length; m++) {
+                    arr1.push(resArr[m] * 1)
+                }
+
+            } else if (resArr[0] * 1 + 1 >= 2 && flag) {
+
+                for (var n = 0; n < resArr.length; n++) {
+                    if (resArr[n] * 1 + 1 >= 2 && flag && n == resArr.length - 1) {
+                        arr1.push(0)
+                        arr1.push(1)
+                        break
+                    }
+                    if (resArr[n] * 1 + 1 >= 2 && flag) {
+                        arr1.push(0)
+                    } else if (resArr[n] * 1 + 1 < 2 && flag) {
+                        arr1.push(resArr[n] * 1 + 1)
+                        flag = false
+                    } else {
+                        arr1.push(resArr[n])
+                    }
+                }
+            } else {
+                for (var z = 0; z < resArr.length; z++) {
+
+                    arr1.push(resArr[z] * 1)
+                }
+            }
+            var arr2 = arr1.reverse().join('')
+            // var sum = 0
+            // var str = '';
+            // var resMax = ''
+            // var resMIn = ''
+            // var flag = true
+            // if (a.length > b.length) {
+            //     resMax = a
+            //     resMIn = b
+            // } else {
+            //     resMax = b
+            //     resMIn = a
+            // }
+            // for (var i = resMax.length - 1; i >= 0; i--) {
+            //     if (flag) {
+            //         for (var j = resMIn.length - 1; j >= 0; j--) {
+            //             sum = (sum + resMax[i] * 1) + resMIn[i] * 1
+            //             if (sum >= 2) {
+            //                 str = 0 + str;
+            //                 sum = 1;
+            //                 continue;
+            //             } else if (sum < 2) {
+            //                 str = sum + str
+            //                 sum = 0
+            //                 console.log(str);
+
+            //                 continue;
+
+            //             }
+            //         }
+            //     }
+            //     if (j == -1) {
+            //         j = false;
+            //         var yaoshi = 'switch';
+            //         var flag = false;
+            //         continue
+            //     }
+            //     if (i == -1) {
+            //         if (sum >0) {
+            //             str = sum + str 
+            //             break
+            //         }
+            //     }else if (yaoshi == 'switch') {
+            //         console.log('-----');
+            //         if (resMax[i] * 1 + sum < 2) {
+            //             str = (resMax[i] * 1 + sum) + str;
+            //         } else if (resMax[i] * 1 + sum >= 2 && i == 0) {
+            //             str = 0 + str
+            //             str = 1 +  str
+            //         } else if (resMax[i] * 1 + sum >= 2) {
+            //             str = 0 + str
+            //             sum = 1
+            //         }
+            //     }
+            // }
+            return arr2;
+        };
+        var a = "110010"
+        var b = "10111"
+
+
+        // "1001001"
+
+
+        var res = addBinary(a, b)
+        console.log(res);
+    </script>
+</body>
+
+</html>

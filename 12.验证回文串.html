@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var isPalindrome = function (s) {
+                //正则表达式
+                // /i (忽略大小写)
+                // /g (全文查找出现的所有匹配字符)
+                // /m (多行查找)
+                // /gi(全文查找、忽略大小写)
+                // /ig(全文查找、忽略大小写)
+
+                // var value = s.replace(/[^0-9]/ig, "");
+                // var b = s.replace(/[^a-z]+/ig, "");
+                // console.log(value);
+                // console.log(b);
+                // console.log(b + (Number(value) + Number(1)));
+                var flag = true;
+                var resS = s.replace(/[^a-z0-9]/ig, '').toLowerCase()
+                // ^保留的内容
+                console.log(resS);
+                for (var i = 0; i < resS.length; i++) {
+                    if (resS.charAt(i) !== resS.charAt(resS.length-1-i) ) {
+                        flag = false;
+                        break
+                    }
+                }
+            return flag;
+        }
+        var s = "A man, a plan, a canal: Panama"
+        // console.log(s.toLowerCase());
+        var res = isPalindrome(s)
+        console.log(res);
+    </script>
+
+</body>
+
+</html>

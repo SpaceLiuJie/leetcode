@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- parseInt() 函数可解析一个字符串，并返回一个整数。
+
+    parseInt 可以接受 2 个函数。
+
+    parseInt(string, radix) 解析一个字符串并返回指定基数的十进制整数， radix 是2-36之间的整数，表示被解析字符串的基数。
+
+    当参数 radix 的值为 0，或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。
+
+    参数
+
+    string
+
+    要被解析的值。如果参数不是一个字符串，则将其转换为字符串(使用 ToString 抽象操作)。字符串开头的空白符将会被忽略。
+
+    radix 可选
+
+    从 2 到 36，表示字符串的基数。例如指定 16 表示被解析值是十六进制数。请注意，10不是默认值！ -->
+     <script>
+        // 第191题
+        var hammingWeight = function (n) {
+            console.log(n); //521
+            var ret = 0;
+            var num = n.toString(2);
+            // var num = n.radix(2);
+            console.log(num);
+            var a = 1111
+            console.log(parseInt(num, 2));
+            console.log(parseInt(a, 2).toString(10));
+            while (n) {
+                n &= n - 1;
+                ret++;
+                // num&= num-1
+                // ret++
+
+            }
+            return ret;
+        };
+        var str = 011101;
+        var res = hammingWeight(str)
+        console.log(res);
+    </script> 
+    <!-- <script>
+
+        var hammingWeight = function (n) {
+            var sum = 0;
+            while (n) {
+                n &= n - 1;
+                console.log(n);
+                sum++
+            }
+            return sum
+        };
+        var str = 11101;
+        console.log(hammingWeight(str))
+
+
+    </script> -->
+</body>
+
+</html>

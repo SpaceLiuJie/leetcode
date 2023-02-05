@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <Script>
+        var plusOne = function (digits) {
+            var flag = false;
+            for (var i = digits.length - 1; i >= 0; i--) {
+                if (digits[i] >= 9 && i == 0) {
+                    digits[i] = 0
+                    digits.unshift(1)
+                    break
+                } else if (digits[i] >= 9) {
+                    digits[i] = 0;
+                    flag = true;
+                } else if (digits[i] < 9 && i == 0) {
+                    digits[i] = digits[i] + 1;
+                    break
+                } else if (digits[i] < 9 && flag == true) {
+                    digits[i] = digits[i] + 1;
+                    break;
+                } else if (digits[i] < 9) {
+                    digits[i] = digits[i] + 1;
+                    break
+                }
+            }
+            return digits
+
+        };
+        var digits = [9]
+        var res = plusOne(digits)
+        console.log(res);
+    </Script>
+</body>
+
+</html>

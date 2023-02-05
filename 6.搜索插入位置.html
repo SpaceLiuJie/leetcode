@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+        var searchInsert = function (nums, target) {
+            function sortNumber(a, b) {
+                return a - b
+            }
+            var num = Math.max();
+            if (nums.indexOf(target) !== -1) {
+                num = nums.indexOf(target)
+            } else {
+                nums.push(target)
+                console.log(nums);
+                nums.sort(sortNumber)
+                console.log(nums);
+                num = nums.indexOf(target)
+            }
+            return num
+        };
+        nums = [3, 5, 7, 9, 10, 12], target = 1
+        var res = searchInsert(nums, target)
+        console.log(res);
+    </script>
+</body>
+
+</html>

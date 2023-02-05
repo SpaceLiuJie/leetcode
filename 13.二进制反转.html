@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 十进制反转是 res = res*10+x%10; x/=10; ,
+        // 那么二进制反转岂不是是 res = res*2+x%2;x/=2;
+        var reverseBits = function (n) {
+
+            // var bin = n.toString(2);
+            // console.log(bin);
+            // var length = bin.length
+            // for (let i = 0; i < 32 - length; i++)
+            //     bin = "0" + bin
+
+            // let result = n.toString().split('').reverse().join('');
+            // console.log(n.toString());
+            // return parseInt(result, 2)
+            let rev = 0;
+            for (let i = 0; i < 32 && n > 0; ++i) {
+                rev |= (n & 1) << (31 - i); // n&1的结果和n的最后一位相同，等于是取出了n的最后一位，再把这一位左移31-i位就移到了翻转之后对称的位置
+                console.log(rev,i);
+                n >>>= 1; // 再将n右移一位
+            }
+            return rev;
+        };
+        var n = 00000010100101000001111010011100;
+        var res = reverseBits(n);
+        console.log(res);
+    </script>
+</body>
+
+</html>

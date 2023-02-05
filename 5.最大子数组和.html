@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var maxSubArray = function (nums) {
+            var sum = Math.max(); //要保存的值
+            var resSum = 0; 
+            var resSum2 = 0
+            for (let i = 0; i < nums.length; i++) {
+              resSum += nums[i]
+             
+              if (resSum > resSum2) {
+                resSum2 = resSum
+                //   sum = resSum
+              }else if(resSum <= resSum2){
+                    resSum = 0
+                    resSum += nums[i]
+              }
+              if (resSum >  resSum2) {
+                resSum2 = resSum
+              }
+                  
+            }
+            return  resSum2;
+        };
+        nums =  [-2,1,-3,4,-1,2,1,-5,4];
+        var res = maxSubArray(nums);
+        console.log(res);
+       
+        
+    </script>
+</body>
+
+</html>

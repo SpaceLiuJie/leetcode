@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 颠倒给定的 32 位无符号整数的二进制位。 -->
+    <script>
+        /**
+ * @param {number} n - a positive integer
+ * @return {number} - a positive integer
+ */
+ var reverseBits = function(n) {
+    let res = 0;
+    for(let i=0;i<32;i++){
+        //res左移，然后取n的最低位，加到res的最低位
+        res = (res << 1) + (n & 1);
+        //n右移
+        n = n>>1;
+    }
+    //把符号位换成0
+    return res >>> 0;
+
+
+};
+    </script>
+    
+</body>
+</html>

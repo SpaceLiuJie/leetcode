@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var singleNumber = function(nums) {
+        //     var num ;
+        //     for (var i = 0; i < nums.length; i++) {
+        //         var count = 0
+        //        for (var j = 0; j < nums.length; j++) {
+        //           if (nums[j] ==nums[i]) {
+        //               count++
+        //           }
+        //        }
+        //         if (count == 1) {
+        //             num = nums[i]
+        //         }
+        //     }
+        //     return  num ;
+        // };
+        // var nums = [1,2,1,2,]
+        // var res = singleNumber(nums)
+        // console.log(res);
+       function fn(a) {
+    return b => c => a + b * c;
+}
+console.log(fn(1)(2)(3))
+function fibonacci3(n) {
+    if (n === 1) {
+        return 1;
+    } else if (n == 2) {
+        return 1;
+    } else if (n == 3) {
+        return 1;
+    } else {
+        return fibonacci3(n - 1) + fibonacci3(n - 2) + fibonacci3(n - 3);
+    }
+}
+console.log(fibonacci3(8))
+    </script>
+</body>
+</html>

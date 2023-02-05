@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arrayPairSum = function (nums) {
+            let sortArr = nums.sort((a, b) => { //数组排序
+                return a-b
+            })
+            let spliceArr = spliceIntoChunks(sortArr, 2)
+            console.log(spliceArr);
+            let num = 0;
+            spliceArr.forEach(key => {
+                num += Math.min(...key)
+            });
+            return num
+
+            function spliceIntoChunks(arr, chunkSize) { //切割数组
+                const res = [];
+                while (arr.length > 0) {
+                    const chunk = arr.splice(0, chunkSize);
+                    res.push(chunk);
+                }
+                return res;
+            }
+
+        };
+        nums = [1, 4, 3, 2, 123, 42, 0];
+
+        console.log(arrayPairSum(nums));
+
+
+
+        // let result = nums.reduce((x, y) => x < y ? x : y)
+        // console.log(result);
+    </script>
+</body>
+
+</html>

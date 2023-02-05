@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var climbStairs = function(n) {
+            // var a =1;
+            // var b =2;
+            // var A = Math.floor(n/a)
+            // var B = Math.floor(n/b)
+            // // console.log(A,B);
+            // var obj1={}
+            // var arr = []
+            // var count = 0
+            // for (var i = 0; i <=  A; i++) {
+            //    for (var j = 0; j<= B; j++) {
+            //       if (a*i + b*j == n) {
+            //             obj1[a] = i
+            //           arr.push(obj1);
+            //           obj1[b] = j
+            //           arr.push(obj1);
+                    
+            //           console.log('-----');
+            //           count++
+            //       }
+                 
+            //    }
+            // }
+            // for (var i = 0; i <=  A; i++) {
+            //    for (var j = 0; j<= B; j++) {
+            //       if (a*j + b*i == n) {
+            //             obj1[a] = j
+            //           arr.push(obj1);
+            //           obj1[b] = i
+            //           arr.push(obj1);
+            //           console.log('-----');
+            //           count++
+            //       }
+                 
+            //    }
+            // }
+            
+            // // console.log(arr);
+            // var arr2 = []
+            // for (var  i = 0; i < arr.length; i++) {
+            //    if (arr2.indexOf(arr[i]) == -1 ) {
+            //        arr2.push(arr[i])
+            //    }
+                
+            // }
+            // console.log(arr2);
+            // return count
+        if(n<=2){
+            return n;
+        }
+       var i1 = 1;
+       var i2 = 2;
+        for(var i=3;i<=n;i++){
+            var temp = i1+i2;
+            i1 = i2;
+            i2 = temp;
+        }
+        return i2;
+    }
+       
+        var n=6;
+        var res = climbStairs(n)
+        console.log(res);
+    </script>
+</body>
+</html>

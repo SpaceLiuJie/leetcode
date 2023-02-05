@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 3. 无重复字符的最长子串 -->
+    <script>
+        var lengthOfLongestSubstring = function (s) {
+            
+            let newStr = ''
+            let oldStr = ''
+            for (let i = 0; i < s.length; i++) {
+                if (newStr.indexOf(s[i]) == -1) {
+                    newStr += s[i]
+                } else {
+                    if (oldStr.length <= newStr.length) {
+                        oldStr = newStr
+                        newStr = newStr.substring(newStr.indexOf(s[i]) + 1)
+                        newStr += s[i]
+                    }else{
+                        newStr = newStr.substring(newStr.indexOf(s[i]) + 1)
+                        newStr += s[i]
+                    }
+
+                }
+            }
+            console.log('newStr', newStr);
+            console.log("oldStr", oldStr);
+            if ( oldStr.length == 0) {
+                return s.length
+            }
+            if (newStr.length >= oldStr.length) {
+                return  newStr.length
+            }else{
+                return oldStr.length
+            }
+            
+           
+
+        };
+
+        console.log(lengthOfLongestSubstring("hkcpmprxxxqw")); //sjrgap
+        // let a = ' '
+        // console.log(a.length);
+        
+    </script>
+</body>
+
+</html>

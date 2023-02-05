@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*   var mergeTwoLists = function (list1, list2) {
+            var arr = []
+            for (let i = 0; i < list1.length; i++) {
+                arr.push(list1[i])
+            }
+            for (let j = 0; j < list2.length; j++) {
+                arr.push(list2[j])
+            }
+            arr.sort();
+            return arr;
+
+        };
+        var arr1 = [0, 5, 9]
+        var arr2 = [1, 7, 8]
+        var res = mergeTwoLists(arr1, arr2);
+        console.log(res); */
+    </script>
+    <script>
+        /* function liujie(a, b, c) {
+            console.log(arguments);
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+
+            }
+        }
+        liujie(1, 2, [1, 43, 545, 7]) */
+    </script>
+    <script>
+        /*   find(item) // 在单链表中寻找item元素
+        insert(element, item); // 向单链表中插入元素
+        remove(item); // 在单链表中删除一个节点
+        append(element); // 在单链表的尾部添加元素
+        findLast(); // 获取单链表的最后一个节点
+        isEmpty(); // 判断单链表是否为空
+        show(); // 显示当前节点
+        getLength(); // 获取单链表的长度
+        advance(n, currNode); // 从当前节点向前移动n个位置
+        display(); // 单链表的遍历显示
+        clear(); // 清空单链表 */
+        class Node {
+            constructor(data) {
+                this.data = data; // 节点的数据域
+                this.prev = null; // 节点的指针域
+                this.next = null; // 节点的指针域
+            }
+        }
+        class LinkedList {
+            constructor() {
+                this.head = null;
+                this.length = 0; // length 同数组 length 与下标关系
+            }
+
+            // 追加元素
+            append(element) {
+                let node = new Node(element);
+                let current = null; // 指针？
+
+                if (this.head === null) {
+                    this.head = node;
+                } else {
+                    current = this.head;
+                    while (current.next) {
+                        current = current.next;
+                    }
+                    current.next = node;
+                }
+                this.length++;
+            }
+            // 任意位置插入元素
+            insert(position, element) {
+                if (position >= 0 && position <= this.length) {
+                    let node = new Node(element);
+                    let current = this.head;
+                    let previous = null;
+                    let index = 0;
+                    if (position === 0) {
+                        this.head = node;
+                    } else {
+                        while (index++ < position) {
+                            previous = current;
+                            current = current.next;
+                        }
+                        node.next = current;
+                        previous.next = node;
+                    }
+                    this.length++;
+                    return true
+                }
+                return false
+            }
+        }
+    </script>
+</body>
+
+</html>

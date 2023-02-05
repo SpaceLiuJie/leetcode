@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+       
+    <meta charset="UTF-8">
+       
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arr =[
+        {'name':'分类一','id':1,'pid':0},
+        {'name':'分类二','id':2,'pid':0},
+        {'name':'子分类一','id':3,'pid':1},
+        {'name':'子分类二','id':4,'pid':1},
+        {'name':'子分类三','id':5,'pid':2},
+        {'name':'子分类四','id':6,'pid':2},
+        {'name':'子分类五','id':7,'pid':3},
+    ]
+    function filterArr(arr) {
+        let obj = {};
+        let parents =arr.filter(item=> item.pid === 0);
+        let child = arr.filter(item=> item.pid !== 0);
+        // console.log(parents);
+        // console.log(child);
+        function filterchilder(parents,child) {
+            parents.forEach((parents_item,parents_index) => {
+                child.forEach((child_item,child_index)=>{
+                    // arr.splice(parents_item,1)
+                    //  console.log(1);
+
+                    if (parents_item.id === child_item.pid) {
+                        if (parents_item.children) {
+                            parents_item.children.push(child_item);
+                            // arr.splice(child_item,1)
+                        }else{
+                            parents_item.children=[];
+                            parents_item.children.push(child_item);
+                            // arr.splice(child_item,1)
+                            
+                        }
+                    }
+                })
+            });
+            // console.log(arr,1);
+           return parents
+        }
+       let result = filterchilder(parents,child);
+       obj.children=[];
+       obj.children.push(result);
+       console.log(obj);
+       return obj
+    }
+    filterArr(arr)
+</script>
+
+</html>
