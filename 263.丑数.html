@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      /*   丑数 就是只包含质因数 2、3 和 5 的正整数。
+
+给你一个整数 n ，请你判断 n 是否为 丑数 。如果是，返回 true ；否则，返回 false 。
+ */
+ var isUgly = function(n) {
+    if(n<0) return false;
+    for (let i of [2,3,5]) {
+        while (n % i === 0) {
+            n = n / i;
+        }
+    }
+    if (n === 1) {
+        return true
+    }else{
+        return false
+    }
+    
+};
+console.log(isUgly(15));
+
+    </script>
+</body>
+</html>
