@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ /*        给你一个整数数组 nums ，其中总是存在 唯一的 一个最大整数 。
+
+请你找出数组中的最大元素并检查它是否 至少是数组中每个其他数字的两倍 。如果是，则返回 最大元素的下标 ，否则返回 -1 。
+提示：
+    1 <= nums.length <= 50
+    0 <= nums[i] <= 100
+    nums 中的最大元素是唯一的
+
+ */
+ var dominantIndex = function(nums) {
+    let newNums = nums.map((a,b)=>a);
+    if (nums.length<2) return 0;//若长度小于2，直接返回该下标
+    newNums.sort((a,b)=>b-a);
+    console.log(newNums[0]/newNums[1]>=2);
+    if (newNums[0]/newNums[1]>=2) {
+        return nums.indexOf(newNums[0])
+    }else{
+        return -1
+    }
+
+};
+let arr = [3,6,1,0]
+let result = dominantIndex(arr)
+console.log(result);
+    </script>
+</body>
+</html>

@@ -13,7 +13,7 @@
 给你一个整数 n ，请你判断 n 是否为 丑数 。如果是，返回 true ；否则，返回 false 。
  */
  var isUgly = function(n) {
-    if(n<0) return false;
+    if(n<1) return false;
     for (let i of [2,3,5]) {
         while (n % i === 0) {
             n = n / i;
