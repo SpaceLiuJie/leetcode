@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。
+
+请你将该字符串重新格式化，使得任意两个相邻字符的类型都不同。也就是说，字母后面应该跟着数字，而数字后面应该跟着字母。
+
+请你返回 重新格式化后 的字符串；如果无法按要求重新格式化，则返回一个 空字符串 。
+
+
+    1 <= s.length <= 500
+    s 仅由小写英文字母和/或数字组成。
+
+ */
+ var reformat = function(s) {
+ 
+    var reg1 = /\d/g;
+    var reg2 = /[a-zA-Z]/g;
+    let numArr = s.match(reg1);
+    let strArr = s.match(reg2)
+    console.log(numArr,strArr);
+    if (numArr == null || strArr == null) {
+        return ""
+    }
+    let numLen = numArr.length;
+    let strLen = strArr.length;
+    console.log(numLen,strLen);
+    if (numLen>strLen&&numLen - strLen !== 1 ||  numLen<strLen&&strLen-numLen !== 1) {
+        return ''
+    }else{
+        console.log('23');
+        var str = '';
+        if (numLen>strLen) {
+            for (let i = 0; i < numLen; i++) {
+                str = str + numArr[i];
+                if (i<strLen) {
+                    str = str + strArr[i];
+                }
+            }
+        }else{
+            for (let i = 0; i < strLen; i++) {
+                str += strArr[i];
+                if (i<numLen) {
+                    str += numArr[i];
+                }
+            }
+        }
+        return str
+    }
+};
+let s = "j"
+console.log(reformat(s));
+    </script>
+</body>
+</html>
