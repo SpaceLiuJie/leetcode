@@ -21,13 +21,15 @@
 
  */
  var reformat = function(s) {
- 
+    if (s.length ==1) { //长度为1时直接输出
+        return s
+    }
     var reg1 = /\d/g;
     var reg2 = /[a-zA-Z]/g;
     let numArr = s.match(reg1);
     let strArr = s.match(reg2)
     console.log(numArr,strArr);
-    if (numArr == null || strArr == null) {
+    if (numArr == null || strArr == null) { //全是数字或字母
         return ""
     }
     let numLen = numArr.length;
